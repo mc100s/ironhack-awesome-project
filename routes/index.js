@@ -1,4 +1,5 @@
 const express = require('express');
+const Book = require('../');
 const router  = express.Router();
 
 /* GET home page */
@@ -6,12 +7,13 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-router.get('/login', (req, res, next) => {
-  res.render('login');
-});
-
-router.post('/login', (req, res, next) => {
-  res.render('login');
+router.get('/books', (req, res, next) => {
+  Book.find({})
+    .then(books => {
+      console.log('DEBUG books', books);
+    })
+    .catch(err => { throw err })
+  res.render('books');
 });
 
 module.exports = router;
