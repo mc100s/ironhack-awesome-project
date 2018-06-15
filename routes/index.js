@@ -1,5 +1,5 @@
 const express = require('express');
-const Book = require('../');
+const Book = require('../models/book');
 const router  = express.Router();
 
 /* GET home page */
